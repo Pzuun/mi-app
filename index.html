@@ -1,0 +1,54 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en Raya con IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tres en Raya</h1>
+        <div class="controls">
+            <label for="difficulty">Dificultad:</label>
+            <select id="difficulty">
+                <option value="easy" selected>Fácil</option>
+                <option value="difficult">Difícil</option>
+                <option value="expert">Experto</option>
+            </select>
+            <button id="restart-button">Reiniciar</button>
+        </div>
+        <div id="status" class="status">Tu turno (✓)</div>
+        <div id="board" class="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <div id="result" class="result hidden"></div>
+        <button id="stats-button" class="stats-toggle-button">📊 Estadísticas</button>
+    </div>
+
+    <div id="stats-panel" class="stats-panel hidden">
+        <h2>Estadísticas</h2>
+        <p>Victorias: <span id="stats-wins">0</span></p>
+        <p>Derrotas: <span id="stats-losses">0</span></p>
+        <p>Empates: <span id="stats-draws">0</span></p>
+        <p>Racha Actual: <span id="stats-current-streak">0</span></p>
+        <p>Mejor Racha: <span id="stats-best-streak">0</span></p>
+        <button id="close-stats-button">Cerrar</button>
+        <button id="reset-stats-button">Reiniciar Estadísticas</button>
+    </div>
+
+    <script type="importmap">
+    {
+      "imports": {}
+    }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

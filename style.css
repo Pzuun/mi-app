@@ -1,0 +1,240 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espacio entre elementos */
+}
+
+.controls label {
+    font-weight: bold;
+}
+
+.controls select,
+.controls button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #e9e9e9;
+    transition: background-color 0.3s ease;
+}
+
+.controls select:focus,
+.controls button:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.controls button:hover {
+    background-color: #ddd;
+}
+
+#restart-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+}
+
+#restart-button:hover {
+    background-color: #2980b9;
+}
+
+.status {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    min-height: 1.5em; /* Previene saltos de layout */
+    color: #3498db;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 0 auto; /* Centra el tablero */
+    width: 315px; /* 3 * 100px + 2 * 5px */
+    height: 315px; /* 3 * 100px + 2 * 5px */
+    background-color: #2c3e50; /* Color de fondo de las líneas */
+    border: 5px solid #2c3e50; /* Borde grueso */
+    border-radius: 5px;
+}
+
+.cell {
+    background-color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 3em; /* Tamaño de las marcas */
+    transition: background-color 0.2s ease;
+}
+
+.cell:hover {
+    background-color: #bdc3c7;
+}
+
+.cell.player1 svg {
+    stroke: #2ecc71; /* Verde */
+    width: 60px;
+    height: 60px;
+}
+
+.cell.player2 svg {
+    stroke: #e74c3c; /* Rojo */
+    width: 60px;
+    height: 60px;
+}
+
+.cell.win {
+    animation: win-pulse 0.8s infinite alternate;
+}
+
+@keyframes win-pulse {
+    from { background-color: #ecf0f1; }
+    to { background-color: #f1c40f; }
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.result.hidden {
+    display: none;
+}
+
+.result.win {
+    color: #27ae60;
+}
+
+.result.lose {
+    color: #c0392b;
+}
+
+.result.draw {
+    color: #7f8c8d;
+}
+
+/* Stats Button */
+.stats-toggle-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #1abc9c; /* Teal color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.stats-toggle-button:hover {
+    background-color: #16a085;
+}
+
+/* Stats Panel */
+.stats-panel {
+    position: fixed; /* Or absolute, depending on desired behavior */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it's above other content */
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.stats-panel.hidden {
+    display: none;
+}
+
+.stats-panel h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.stats-panel p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.stats-panel span {
+    font-weight: bold;
+    color: #3498db;
+}
+
+.stats-panel button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    background-color: #e9e9e9;
+    transition: background-color 0.3s ease;
+    margin-left: 5px; /* Spacing between buttons */
+    margin-right: 5px;
+}
+
+.stats-panel button:hover {
+    background-color: #ddd;
+}
+
+#close-stats-button {
+    background-color: #e74c3c; /* Red */
+    color: white;
+    border: none;
+}
+#close-stats-button:hover {
+    background-color: #c0392b;
+}
+
+#reset-stats-button {
+    background-color: #f39c12; /* Orange */
+    color: white;
+    border: none;
+}
+#reset-stats-button:hover {
+    background-color: #e67e22;
+}
+
+/* SVG Styles */
+svg {
+    stroke-width: 8;
+    stroke-linecap: round;
+    fill: none;
+}
